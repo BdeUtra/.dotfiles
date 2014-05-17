@@ -5,6 +5,8 @@ a basic set of sanity dot files to start off some of your important CLI program'
 
 Pre-install
 -----------
+
+mac
 ```
 brew install vim
 brew install tmux
@@ -12,7 +14,14 @@ brew install tig
 brew install reattach-to-user-namespace
 ```
 
-you want all these things. linux can just `sudo apt-get` the above (minus reattach)
+linux
+```
+sudo apt-get install vim-gtk
+sudo apt-get install tmux
+sudo apt-get install tig
+```
+
+you want all these things.
 
 Install
 -------
@@ -73,4 +82,8 @@ http://zzapper.co.uk/vimtips.html
 
 http://www.meetup.com/Vim-London/
 
+Dotfiles from leto people
+-------------------------
+Poking around other peoples dotfiles is a good way of finding cool things or ways of doing stuff 
 
+https://github.com/nicwest/.dotfiles
