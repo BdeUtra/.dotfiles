@@ -1,0 +1,5 @@
+#show a short hash for each commit
+set show-id = yes
+
+#yank hash with y
+bind generic y !@sh -c "echo -n %(commit) | xclip -selection c"
