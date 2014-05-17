@@ -57,13 +57,13 @@ set background=dark
 set backspace=indent,eol,start "makes backspacing non retarded
 set scrolloff=3 "the number of lines before the end of the window.
 set showmode "don't remember what this does
-set hidden "this has something to do with buffers
+set hidden "lets you navigate away from buffer with unsaved changes
 set encoding=utf-8 "because foreigners happened
 set wildmenu "this changes things in the ':' menu, you'll like it.
 set wildmode=longest:full,full
 set visualbell "as in not audiobell that is basically a bell... ANNOYING!
-set ttyfast "don't remember what this does
-set undofile "don't remember what this does
+set ttyfast "terminals are now fast, wow!
+set undofile "saves an undo file
 
 "sane search settings
 set ignorecase
