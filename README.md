@@ -22,6 +22,16 @@ Install
 4. `python makesyms.py`
 5. `git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim` trust me you want this
 
+Programs
+---------------
+so your three basic programs are `vim`, `tmux -2`, and `tig`
+
+`vim` is your text editor and or IDE, it does all of the things and is baddass.
+
+`tmux -2` is a terminal based widow/buffer manger it means you can be baddass with vim (the `-2` suffix make tmux use 256 colors in terminal)
+
+`tig` is cool git viewer in curses, it means you can get on with learning vim without thinking about git to much
+
 Important Changed Keybinds
 ------------------
 `CTRL-a` is your tmux prefix, all tmux commands are prefixed by this keystroke (not CTRL-b which is default).
