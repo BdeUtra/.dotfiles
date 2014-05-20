@@ -80,6 +80,10 @@ set shiftwidth=4
 set softtabstop=4
 set expandtab
 
+" line numbers
+set relativenumber
+set number
+
 "mouse and things
 set mouse=a
 map <ScrollWheelUp> 3<C-Y>
@@ -111,26 +115,9 @@ if !isdirectory(expand(&directory))
    call mkdir(expand(&directory), "p")
 endif
 
-" line numbers
-set relativenumber
-set number
-
-" toggle relative line numbers
-function! NumberToggle()
-    if(&relativenumber == 1)
-        set norelativenumber
-    else
-        set relativenumber
-    endif
-endfunc
-    
-nnoremap <Leader>l  :call NumberToggle()<cr>
-
 "auto set clipboard
+set clipboard=unnamed
 if os == 'unix'
     set clipboard=unnamedplus
 endif
 
-if os == 'mac'
-    set clipboard=unnamed
-endif
