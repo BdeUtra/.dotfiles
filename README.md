@@ -87,3 +87,5 @@ Dotfiles from leto people
 Poking around other peoples dotfiles is a good way of finding cool things or ways of doing stuff 
 
 https://github.com/nicwest/.dotfiles
+
+https://gist.github.com/qazwsxpawel/937863b9b5ed18e0322e
