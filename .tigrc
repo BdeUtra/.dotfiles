@@ -1,5 +1,5 @@
 #show a short hash for each commit
-set show-id = yes
+set main-view = id:true date:short author:true commit-title:true,graph=true,refs=true
 
 #yank hash with y
-bind generic y !@sh -c "echo -n %(commit) | xclip -selection c"
+bind generic y !sh -c "/bin/echo -n %(commit) | pbcopy"
