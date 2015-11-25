@@ -6,6 +6,8 @@ path = os.path.join(home, '.dotfiles')
 stuff = [
     '.vimrc',
     '.tmux.conf',
+    '.tmux.status.conf',
+    '.zshrc',
     '.tigrc',
 ]
 
