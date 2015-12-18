@@ -114,3 +114,31 @@ alias notify="osascript -e 'display notification \"Done\" with title \"Done\"'"
 
 ### Androids
 export PATH=${PATH}:/Users/bruno/Library/Android/sdk/platform-tools:/Users/bruno/Library/Android/sdk/tools:/Users/bruno/code/apache-ant-1.9.4/bin
+
+
+# MacPorts Installer addition on 2015-11-30_at_12:00:27: adding an appropriate PATH variable for use with MacPorts.
+export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
+# Finished adapting your PATH environment variable for use with MacPorts.
+
+# Postgres
+export PATH=/opt/local/lib/postgresql93/bin:$PATH
+
+export PATH=/usr/local/bin:$PATH
+export PATH=/opt/local/bin:$PATH
+export PATH=/opt/local/Library/Frameworks/Python.framework/Versions/2.7/bin/:$PATH
+source /server/apps/ometria.deployment/source/dev
+ssh-add ~/.ssh/Ometria_Bastion_Bruno.pem 2>/dev/null
+
+tossh() {
+    ssh ec2-user@`ec2-ip $1`
+}
+
+# source secrets
+source ~/.secrets
+
+# VIRTUALENVWRAPPER
+
+export WORKON_HOME=~/.virtualenvs
+mkdir -p $WORKON_HOME
+export VIRTUALENVWRAPPER_PYTHON=/opt/local/Library/Frameworks/Python.framework/Versions/2.7/bin/python
+source /opt/local/Library/Frameworks/Python.framework/Versions/2.7/bin/virtualenvwrapper.sh

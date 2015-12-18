@@ -23,6 +23,7 @@ Plugin 'vim-scripts/twilight256.vim'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'junegunn/seoul256.vim'
 "Plugin 'nvie/vim-flake8'
+Plugin 'elzr/vim-json'
 Plugin 'scrooloose/syntastic'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'SirVer/ultisnips'
@@ -82,6 +83,8 @@ set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 set expandtab
+
+"set filetypes
 
 "set tab stops based on file type
 autocmd Filetype html,htmldjango setlocal ts=2 sts=2 sw=2
@@ -174,7 +177,7 @@ nnoremap <leader>ez :vsp ~/.zshrc<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
 
 " autocmd jpython
-autocmd FileType python source ~/.vim/bundle/jpythonfold.vim/syntax/jpythonfold.vim"
+" autocmd FileType python source ~/.vim/bundle/jpythonfold.vim/syntax/jpythonfold.vim"
 
 " YouCompleteMe
 let g:ycm_collect_identifiers_from_tags_files = 1
