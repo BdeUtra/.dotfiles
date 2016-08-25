@@ -9,30 +9,31 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
-
-" below are some plugins to make your life easier. uncomment and :BundleInstall
-" when you feel brave enough. they are all pretty frickin usefull.
-
 Plugin 'airblade/vim-gitgutter'
 Plugin 'itchyny/lightline.vim'
 "Plugin 'jpythonfold.vim'
 Plugin 'tmhedberg/SimpylFold'
 Plugin 'kien/ctrlp.vim'
 "Plugin 'scrooloose/nerdtree'
+Plugin 'The-NERD-Commenter'
 Plugin 'vim-scripts/twilight256.vim'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'junegunn/seoul256.vim'
 "Plugin 'nvie/vim-flake8'
 Plugin 'elzr/vim-json'
+Plugin 'tpope/vim-git'
 Plugin 'scrooloose/syntastic'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'chase/vim-ansible-yaml'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'tpope/vim-surround'
+Plugin 'Raimondi/delimitMate'
+Plugin 'haya14busa/incsearch.vim'
 call vundle#end()
 
-filetype plugin indent on " ....to here.
+filetype plugin indent on "load file type plugins + indentation
 
 " Get running OS
 let os = ""
@@ -57,9 +58,10 @@ let g:seoul256_background = 235
 colorscheme seoul256
 
 "sanity settings
-set backspace=indent,eol,start "makes backspacing non retarded
+set backspace=indent,eol,start " backspace through everything in insert mode
 set scrolloff=3 "the number of lines before the end of the window.
 set showmode "don't remember what this does
+set showcmd "display incomplete commands
 set hidden "lets you navigate away from buffer with unsaved changes
 set encoding=utf-8 "because foreigners happened
 set wildmenu "this changes things in the ':' menu, you'll like it.
@@ -68,6 +70,7 @@ set visualbell "as in not audiobell that is basically a bell... ANNOYING!
 set ttyfast "terminals are now fast, wow!
 set undofile "saves an undo file
 set cmdheight=2
+set nowrap
 
 "sane search settings
 set ignorecase
@@ -78,7 +81,7 @@ set showmatch
 set hlsearch
 
 "this makes <Tab> make sense
-set smartindent
+"set smartindent
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
@@ -169,15 +172,14 @@ let g:gitgutter_realtime=1
 
 " Maps
 let mapleader = ","
-nnoremap <Leader>v :e ~/.vimrc<CR>
 
 " edit vimrc/zshrc and load vimrc bindings
 nnoremap <leader>ev :vsp $MYVIMRC<CR>
 nnoremap <leader>ez :vsp ~/.zshrc<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
 
-" autocmd jpython
-" autocmd FileType python source ~/.vim/bundle/jpythonfold.vim/syntax/jpythonfold.vim"
+"autocmd jpython
+"autocmd FileType python source ~/.vim/bundle/jpythonfold.vim/syntax/jpythonfold.vim"
 
 " YouCompleteMe
 let g:ycm_collect_identifiers_from_tags_files = 1
@@ -206,7 +208,7 @@ let g:ycm_collect_identifiers_from_tags_files = 1
 
 " syntastic {
     let g:syntastic_python_checkers = ['flake8']
-    let g:syntastic_python_flake8_args='--ignore=E501,E225,E226,E265'
+    let g:syntastic_python_flake8_args='--ignore=E501,E225,E226,E265,I100,I101,I201'
 "}
 
 " strip trailing whitespace before saving {
@@ -271,3 +273,24 @@ if 'VIRTUAL_ENV' in os.environ:
 EOF
 
 let python_highlight_all=1
+
+let g:ycm_path_to_python_interpreter="/opt/local/bin/python"
+
+" incsearch
+set hlsearch
+map /  <Plug>(incsearch-forward)
+map ?  <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
+let g:incsearch#auto_nohlsearch = 1
+
+" resize vim splits
+nnoremap Ó <c-w>5>
+nnoremap Ò <c-w>5<
+nnoremap  <c-w>5+
+nnoremap Ô <c-w>5-
+
+" run tests
+" run all tests
+nnoremap <leader>a :!./activate.sh dev fab test_new<CR>
+" run only tests on focused file
+nnoremap <leader>t :!./activate.sh dev py.test -sv %<CR>
